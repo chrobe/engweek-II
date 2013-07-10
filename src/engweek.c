@@ -17,7 +17,7 @@ TextLayer text_daynum_layer;
 Layer line_layer;
 
 static const char *day_names[] = {
-  "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"
+  "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
 };
 
 static const char *month_names[] = {
@@ -45,12 +45,12 @@ void update_display(PblTm *tick_time) {
   static char date_text[]     = "                  ";
   static char new_date_text[] = "                  ";	
   static char year_text[]     = "                  ";
-  static char daynum_text[]   = "                  ";
+  static char daynum_text[]   = "d000";
 
   int month = tick_time->tm_mon;
   // string_format_time(new_date_text, sizeof(date_text), "%e ", tick_time);
   // strcat(new_date_text, month_names[month]);
-  string_format_time(date_text, sizeof(date_text), "%b %e", tick_time);
+  string_format_time(date_text, sizeof(date_text), "%B %e", tick_time);
   
  
   // Only update the date/day/week strings when they're changed.
@@ -68,7 +68,7 @@ void update_display(PblTm *tick_time) {
 	  string_format_time(year_text, sizeof(year_text), "%Y-%m-%d", tick_time);
 	  text_layer_set_text(&text_year_layer, year_text);
 	  
-	  string_format_time(daynum_text, sizeof(daynum_text), "%j", tick_time);
+	  string_format_time(daynum_text, sizeof(daynum_text), "d%j", tick_time);
 	  text_layer_set_text(&text_daynum_layer, daynum_text);
   }
 
@@ -102,7 +102,7 @@ void handle_init(AppContextRef ctx) {
   text_layer_init(&text_week_layer, window.layer.frame);
   text_layer_set_text_color(&text_week_layer, GColorWhite);
   text_layer_set_background_color(&text_week_layer, GColorClear);
-  layer_set_frame(&text_week_layer.layer, GRect(96, 8, 144-96, 168-8));
+  layer_set_frame(&text_week_layer.layer, GRect(26, 120, 144-26, 168-120));
   text_layer_set_font(&text_week_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_SANSATION_REGULAR_18)));
   layer_add_child(&window.layer, &text_week_layer.layer);
 	
@@ -110,7 +110,7 @@ void handle_init(AppContextRef ctx) {
   text_layer_init(&text_daynum_layer, window.layer.frame);
   text_layer_set_text_color(&text_daynum_layer, GColorWhite);
   text_layer_set_background_color(&text_daynum_layer, GColorClear);
-  layer_set_frame(&text_daynum_layer.layer, GRect(100, 24, 144-100, 168-24));
+  layer_set_frame(&text_daynum_layer.layer, GRect(75, 120, 144-75, 168-120));
   text_layer_set_font(&text_daynum_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_SANSATION_REGULAR_18)));
   layer_add_child(&window.layer, &text_daynum_layer.layer);
 

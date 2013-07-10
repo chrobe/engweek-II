@@ -1,20 +1,10 @@
 {
     "media": [
         {
-            "defName": "IMAGE_MENU_ICON",
-            "type": "png",
-            "file": "images/menu_icon_simplicity.png"
-        },
-        {
-            "defName": "FONT_SANSATION_REGULAR_18",
-            "type": "font",
-            "file": "fonts/Sansation_Regular.ttf"
-        },
-        {
             "characterRegex": "[:0-9]",
-            "defName": "FONT_SANSATION_BOLD_47",
+            "defName": "FONT_CONTINUUM_BOLD_48",
             "type": "font",
-            "file": "fonts/Sansation_Bold.ttf"
+            "file": "fonts/contb.ttf"
         },
         {
             "defName": "FONT_CONTINUUM_REGULAR_18",
@@ -23,9 +13,19 @@
         },
         {
             "characterRegex": "[:0-9]",
-            "defName": "FONT_CONTINUUM_BOLD_48",
+            "defName": "FONT_SANSATION_BOLD_47",
             "type": "font",
-            "file": "fonts/contb.ttf"
+            "file": "fonts/Sansation_Bold.ttf"
+        },
+        {
+            "defName": "FONT_SANSATION_REGULAR_18",
+            "type": "font",
+            "file": "fonts/Sansation_Regular.ttf"
+        },
+        {
+            "defName": "IMAGE_MENU_ICON",
+            "type": "png",
+            "file": "images/menu_icon_simplicity.png"
         }
     ],
     "friendlyVersion": "VERSION",
